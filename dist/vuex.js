@@ -6,7 +6,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.Vuex = factory());
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Vuex = factory());
 }(this, (function () { 'use strict';
 
   function applyMixin (Vue) {
@@ -292,7 +292,11 @@
     var parent = this.get(path.slice(0, -1));
     var key = path[path.length - 1];
 
-    return parent.hasChild(key)
+    if (parent) {
+      return parent.hasChild(key)
+    }
+
+    return false
   };
 
   function update (path, targetModule, newModule) {

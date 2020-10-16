@@ -288,7 +288,11 @@ ModuleCollection.prototype.isRegistered = function isRegistered (path) {
   var parent = this.get(path.slice(0, -1));
   var key = path[path.length - 1];
 
-  return parent.hasChild(key)
+  if (parent) {
+    return parent.hasChild(key)
+  }
+
+  return false
 };
 
 function update (path, targetModule, newModule) {
