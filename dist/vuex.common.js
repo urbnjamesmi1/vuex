@@ -1,5 +1,5 @@
 /*!
- * vuex v3.5.1
+ * vuex v4.0.0-beta.5
  * (c) 2020 Evan You
  * @license MIT
  */
@@ -1232,7 +1232,7 @@ function pad (num, maxLength) {
 var index_cjs = {
   Store: Store,
   install: install,
-  version: '3.5.1',
+  version: '4.0.0-beta.5',
   mapState: mapState,
   mapMutations: mapMutations,
   mapGetters: mapGetters,
